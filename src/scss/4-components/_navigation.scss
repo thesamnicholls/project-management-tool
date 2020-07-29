@@ -6,10 +6,15 @@ $this: 'c-navigation' !global;
 
   &__wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
+
+    @include breakpoint('>=', 'ts') {
+      flex-direction: row;
+    }
   }
 
   &__row {
@@ -25,6 +30,8 @@ $this: 'c-navigation' !global;
       family: $font-regular;
     }
     color: $white;
+    text-decoration: none;
+    text-align: center;
     margin: 0;
   }
 
@@ -33,12 +40,19 @@ $this: 'c-navigation' !global;
     display: flex;
     flex-direction: row;
     padding: 0;
-    margin: 0;
+    margin: 30px 0 0 0;
+
+    @include breakpoint('>=', 'ts') {
+      margin: 0;
+    }
   }
 
   &__list-item {
+    display: flex;
+    align-items: center;
+    
     &:not(:last-child) {
-      margin-right: 10px;
+      margin-right: 20px;
     }
   }
 
@@ -54,6 +68,22 @@ $this: 'c-navigation' !global;
     &:hover {
       text-decoration: underline;
     }
+
+    @include breakpoint('>=', 'ms') {
+      font-size: 20px;
+    }
+  }
+
+  &__circle {
+    font: {
+      size: 18px;
+      family: $font-regular;
+    }
+    color: $black;
+    background-color: $white;
+    border-radius: 50%;
+    text-decoration: none;
+    padding: 10px;
 
     @include breakpoint('>=', 'ms') {
       font-size: 20px;
