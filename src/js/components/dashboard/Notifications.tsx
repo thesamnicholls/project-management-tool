@@ -2,9 +2,9 @@ import React from 'react'
 
 const Notifications = (): JSX.Element => {
   return (
-    <>
-      <h1>Notifications</h1>
-    </>
+    <div className='c-notification'>
+      <p className='c-notification'>Notifications</p>
+    </div>
   )
 }
 

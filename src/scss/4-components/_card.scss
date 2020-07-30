@@ -1,0 +1,27 @@
+$this: 'c-card' !global;
+
+.#{$this} {
+  box-shadow: 0px 3px 15px rgba($black, 0.5);
+  width: 100%;
+  padding: 20px;
+
+  &__title {
+    font: {
+      size: 24px;
+      family: $font-regular;
+    }
+    line-height: 1.2;
+    margin: 0 0 15px 0;
+  }
+
+  &__post {
+    font-family: $font-regular;
+    margin: 0 0 5px 0;
+  }
+
+  &__date {
+    font-family: $font-regular;
+    color: $light-grey;
+    margin: 0;
+  }
+}

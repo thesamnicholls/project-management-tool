@@ -1,0 +1,39 @@
+$this: 'c-detail' !global;
+
+.#{$this} {
+  margin: 0 auto;
+
+  &__wrapper {
+    padding: 0 20px;
+  }
+
+  &__title {
+    font: {
+      size: 24px;
+      family: $font-regular;
+    }
+    line-height: 1.2;
+    margin: 0 0 15px 0;
+  }
+
+  &__description {
+    font-family: $font-regular;
+    line-height: 1.2;
+  }
+
+  &__footer {
+    border-top: 1px solid $black;
+    padding: 20px 20px 0 20px;
+  }
+
+  &__post {
+    font-family: $font-regular;
+    margin: 0 0 5px 0;
+  }
+
+  &__date {
+    font-family: $font-regular;
+    color: $light-grey;
+    margin: 0;
+  }
+}

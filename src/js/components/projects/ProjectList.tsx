@@ -1,10 +1,12 @@
 import React from 'react'
+import ProjectSummary from './ProjectSummary'
 
 const ProjectList = (): JSX.Element => {
   return (
-    <>
-      <h1>ProjectList</h1>
-    </>
+    <div className='l-grid'>
+      <ProjectSummary />
+      <ProjectSummary />
+    </div>
   )
 }
 

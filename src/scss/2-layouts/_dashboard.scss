@@ -1,0 +1,35 @@
+$this: 'l-dashboard' !global;
+
+.#{$this} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include breakpoint('>=', 'ts') {
+    flex-direction: row;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    min-width: 50%;
+
+    &--card {
+      @extend .#{$this}__wrapper !optional;
+      order: 2;
+
+      @include breakpoint('>=', 'ts') {
+        order: 1;
+      }
+    }
+
+    &--notification {
+      @extend .#{$this}__wrapper !optional;
+      order: 1;
+
+      @include breakpoint('>=', 'ts') {
+        order: 2;
+      }
+    }
+  }
+}
