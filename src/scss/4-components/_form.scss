@@ -1,0 +1,15 @@
+$this: 'c-form' !global;
+
+.#{$this} {
+  max-width: 700px;
+  width: 100%;
+
+  &__title {
+    font: {
+      size: 32px;
+      family: $font-regular;
+    }
+    line-height: 1.2;
+    margin: 0 0 40px 0;
+  }
+}

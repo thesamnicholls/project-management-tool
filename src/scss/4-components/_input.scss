@@ -1,0 +1,47 @@
+$this: 'c-input' !global;
+
+.#{$this} {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    font: {
+      size: 18px;
+      family: $font-regular;
+      weight: bold;
+    }
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    font: {
+      size: 18px;
+      family: $font-regular;
+    }
+    border: none;
+    border-bottom: 1px solid $black;
+    padding-bottom: 5px;
+    margin-bottom: 40px;
+  }
+
+  &__area {
+    font: {
+      size: 18px;
+      family: $font-regular;
+    }
+    border: none;
+    border-bottom: 1px solid $black;
+    min-height: 80px;
+    padding-bottom: 5px;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font: {
+      size: 24px;
+      family: $font-regular;
+    }
+    line-height: 1.2;
+    margin: 0 0 15px 0;
+  }
+}
