@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ProjectDetails = (props): JSX.Element => {
-  const id = props.match.params.id
+  // const id = props.match.params.id
 
   return (
     <div className='c-detail'>
