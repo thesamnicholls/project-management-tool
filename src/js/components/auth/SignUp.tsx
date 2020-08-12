@@ -7,23 +7,23 @@ const SignUp = (): JSX.Element => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = (event: any) => {
     setEmail(event.target.value)
   }
 
-  const handlePasswordChange = (event) => {
+  const handlePasswordChange = (event: any) => {
     setPassword(event.target.value)
   }
 
-  const handleFirstNameChange = (event) => {
+  const handleFirstNameChange = (event: any) => {
     setFirstName(event.target.value)
   }
 
-  const handleLastNameChange = (event) => {
+  const handleLastNameChange = (event: any) => {
     setLastName(event.target.value)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault()
     console.log(
       'password ' + password,
@@ -61,7 +61,11 @@ const SignUp = (): JSX.Element => {
         onChange={handleLastNameChange}
       />
       <div className='c-form__button'>
-        <button className='c-button' title='Click here to sign up'>
+        <button
+          className='c-button'
+          type='submit'
+          title='Click here to sign up'
+        >
           Sign Up
         </button>
       </div>

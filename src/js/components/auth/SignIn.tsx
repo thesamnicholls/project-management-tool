@@ -5,15 +5,15 @@ const SignIn = (): JSX.Element => {
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = (event: any) => {
     setEmail(event.target.value)
   }
 
-  const handlePasswordChange = (event) => {
+  const handlePasswordChange = (event: any) => {
     setPassword(event.target.value)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault()
     console.log('password ' + password, 'email ' + email)
   }
@@ -34,7 +34,7 @@ const SignIn = (): JSX.Element => {
         onChange={handlePasswordChange}
       />
       <div className='c-form__button'>
-        <button className='c-button' title='Click here to login'>
+        <button className='c-button' type='submit' title='Click here to login'>
           Login
         </button>
       </div>
