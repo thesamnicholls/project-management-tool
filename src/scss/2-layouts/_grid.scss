@@ -3,13 +3,11 @@ $this: 'l-grid' !global;
 .#{$this} {
   display: grid;
   grid-gap: 20px;
-  justify-content: center;
   width: 100%;
   margin: 0 auto;
 
   @include breakpoint('>=', 'ts') {
     grid-gap: 40px;
-    justify-content: flex-start;
     padding: 20px;
   }
 }

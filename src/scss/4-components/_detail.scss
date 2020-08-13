@@ -1,6 +1,7 @@
 $this: 'c-detail' !global;
 
 .#{$this} {
+  width: 100%;
   margin: 0 auto;
 
   &__wrapper {

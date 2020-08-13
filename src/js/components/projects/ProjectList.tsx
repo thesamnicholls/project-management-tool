@@ -25,7 +25,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
     <div className='l-grid'>
       {render ? (
         <div>
-          <div className='row'>
+          <div className='o-row'>
             <div className='l-grid'>
               {projects.slice(0, visible).map((post) => (
                 <ProjectSummary
