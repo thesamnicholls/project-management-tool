@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import Input from './Input'
+import { connect } from 'react-redux'
+import { signIn } from '../../store/actions/authActions'
 
-const SignIn = (): JSX.Element => {
+const SignIn = (props: any): JSX.Element => {
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
+
+  const credentials = { password: password, email: email }
+  const { authError } = props
 
   const handleEmailChange = (event: any) => {
     setEmail(event.target.value)
@@ -15,7 +20,7 @@ const SignIn = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault()
-    console.log('password ' + password, 'email ' + email)
+    props.signIn(credentials)
   }
 
   return (
@@ -33,6 +38,7 @@ const SignIn = (): JSX.Element => {
         type='password'
         onChange={handlePasswordChange}
       />
+      {authError && <p className='c-form__error'>{authError}</p>}
       <div className='c-form__button'>
         <button className='c-button' type='submit' title='Click here to login'>
           Login
@@ -42,4 +48,16 @@ const SignIn = (): JSX.Element => {
   )
 }
 
-export default SignIn
+const mapStateToProps = (state: any) => {
+  return {
+    authError: state.auth.authError,
+  }
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    signIn: (credentials) => dispatch(signIn(credentials)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

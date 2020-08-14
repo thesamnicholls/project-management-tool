@@ -2,8 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
+import { connect } from 'react-redux'
 
-const Navigation = (): JSX.Element => {
+const Navigation = (props: any): JSX.Element => {
+  const { auth } = props
+
   return (
     <div className='c-navigation'>
       <div className='c-navigation__wrapper'>
@@ -14,11 +17,16 @@ const Navigation = (): JSX.Element => {
         >
           Project Management Tool
         </Link>
-        <SignedInLinks />
-        <SignedOutLinks />
+        {auth.uid ? <SignedInLinks /> : <SignedOutLinks />}
       </div>
     </div>
   )
 }
 
-export default Navigation
+const mapStateToProps = (state: any) => {
+  return {
+    auth: state.firebase.auth,
+  }
+}
+
+export default connect(mapStateToProps)(Navigation)

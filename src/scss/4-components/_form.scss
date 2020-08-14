@@ -12,4 +12,13 @@ $this: 'c-form' !global;
     line-height: 1.2;
     margin: 0 0 40px 0;
   }
+
+  &__error {
+    font: {
+      size: 20px;
+      family: $font-regular;
+    }
+    color: $red;
+    text-align: center;
+  }
 }
