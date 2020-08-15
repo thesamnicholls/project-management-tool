@@ -37,7 +37,7 @@ const SignedInLinks = (props: any): JSX.Element => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     signOut: () => dispatch(signOut()),
   }

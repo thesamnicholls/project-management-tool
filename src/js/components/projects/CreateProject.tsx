@@ -3,10 +3,13 @@ import Input from '../auth/Input'
 import TextArea from '../auth/TextArea'
 import { createProject } from '../../store/actions/projectActions'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 const CreateProject = (props): JSX.Element => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+
+  const auth = props.auth
 
   // Creating a project object which has the title and content state
   const project = {
@@ -30,6 +33,9 @@ const CreateProject = (props): JSX.Element => {
     props.createProject(project)
   }
 
+  if (!auth.uid) {
+    return <Redirect to='/project-management-tool/signin' />
+  }
   return (
     <form onSubmit={handleSubmit} className='c-form'>
       <p className='c-form__title'>Create Project</p>
@@ -49,10 +55,16 @@ const CreateProject = (props): JSX.Element => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state: any) => {
   return {
-    createProject: (project) => dispatch(createProject(project)),
+    auth: state.firebase.auth,
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreateProject)
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    createProject: (project: any) => dispatch(createProject(project)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProject)

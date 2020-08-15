@@ -5,6 +5,7 @@ import SignedOutLinks from './SignedOutLinks'
 import { connect } from 'react-redux'
 
 const Navigation = (props: any): JSX.Element => {
+  // Descructuring auth from props
   const { auth } = props
 
   return (

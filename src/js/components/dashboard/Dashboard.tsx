@@ -4,10 +4,18 @@ import Notifications from './Notifications'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
 const Dashboard = (props: any): JSX.Element => {
-  const projects = props.projects
+  // Descructuring auth from props
+  const { projects, auth } = props
 
+  // If the user is logged in then redirect back to the sign in page
+  if (!auth.uid) {
+    return <Redirect to='/project-management-tool/signin' />
+  }
+
+  // If the user is not logged in then show the dashboard
   return (
     <div className='l-dashboard'>
       <div className='l-dashboard__wrapper--card'>
@@ -23,6 +31,7 @@ const Dashboard = (props: any): JSX.Element => {
 const mapStateToProps = (state: any) => {
   return {
     projects: state.firestore.ordered.projects,
+    auth: state.firebase.auth,
   }
 }
 export default compose<any>(

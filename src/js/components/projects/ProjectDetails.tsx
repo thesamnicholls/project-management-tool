@@ -3,11 +3,16 @@ import Loading from '../Loading'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
 const ProjectDetails = (props: any): JSX.Element => {
   const { project } = props
+  const auth = props.auth
 
   if (project) {
+    if (!auth.uid) {
+      return <Redirect to='/project-management-tool/signin' />
+    }
     return (
       <div className='c-detail'>
         <div className='c-detail__wrapper'>
@@ -33,6 +38,7 @@ const mapStateToProps = (state, props) => {
   const project = projects ? projects[id] : null
   return {
     project: project,
+    auth: state.firebase.auth,
   }
 }
 export default compose<any>(
