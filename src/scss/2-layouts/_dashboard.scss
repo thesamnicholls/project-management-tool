@@ -12,24 +12,6 @@ $this: 'l-dashboard' !global;
   &__wrapper {
     display: flex;
     justify-content: center;
-    min-width: 50%;
-
-    &--card {
-      @extend .#{$this}__wrapper !optional;
-      order: 2;
-
-      @include breakpoint('>=', 'ts') {
-        order: 1;
-      }
-    }
-
-    &--notification {
-      @extend .#{$this}__wrapper !optional;
-      order: 1;
-
-      @include breakpoint('>=', 'ts') {
-        order: 2;
-      }
-    }
+    width: 100%;
   }
 }

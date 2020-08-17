@@ -86,7 +86,12 @@ $this: 'c-navigation' !global;
     background-color: $white;
     border-radius: 50%;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
+    min-width: 40px;
+    min-height: 40px;
 
     @include breakpoint('>=', 'ms') {
       font-size: 20px;

@@ -31,6 +31,7 @@ const CreateProject = (props): JSX.Element => {
   const handleSubmit = (event) => {
     event.preventDefault()
     props.createProject(project)
+    props.history.push('/project-management-tool')
   }
 
   if (!auth.uid) {

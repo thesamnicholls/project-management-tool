@@ -23,7 +23,9 @@ const ProjectDetails = (props: any): JSX.Element => {
           <p className='c-detail__post'>
             Posted By {project.authorFirstName} {project.authorLastName}
           </p>
-          <p className='c-detail__date'>2nd September, 2am</p>
+          <p className='c-detail__date'>
+            {project.createdAt.toDate().toDateString()}
+          </p>
         </div>
       </div>
     )

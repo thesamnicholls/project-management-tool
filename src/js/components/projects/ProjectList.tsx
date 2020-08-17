@@ -32,7 +32,9 @@ const ProjectList = ({ projects }: ProjectListProps) => {
                   key={post.id}
                   id={post.id}
                   title={post.title}
-                  description={post.body}
+                  authorFirstName={post.authorFirstName}
+                  authorLastName={post.authorLastName}
+                  createdAt={post.createdAt}
                 />
               ))}
             </div>

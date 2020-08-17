@@ -5,8 +5,8 @@ import SignedOutLinks from './SignedOutLinks'
 import { connect } from 'react-redux'
 
 const Navigation = (props: any): JSX.Element => {
-  // Descructuring auth from props
-  const { auth } = props
+  // Descructuring auth and profile from props
+  const { auth, profile } = props
 
   return (
     <div className='c-navigation'>
@@ -18,15 +18,17 @@ const Navigation = (props: any): JSX.Element => {
         >
           Project Management Tool
         </Link>
-        {auth.uid ? <SignedInLinks /> : <SignedOutLinks />}
+        {auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />}
       </div>
     </div>
   )
 }
 
 const mapStateToProps = (state: any) => {
+  console.log(state)
   return {
     auth: state.firebase.auth,
+    profile: state.firebase.profile,
   }
 }
 

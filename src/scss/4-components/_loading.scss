@@ -16,6 +16,7 @@ $this: 'c-loading' !global;
   border-top: 4px solid $black;
   animation: 1.64s loading infinite linear;
   transform: translate(-50%, -50%);
+  margin: 0 auto;
   width: 50px;
   height: 50px;
 }

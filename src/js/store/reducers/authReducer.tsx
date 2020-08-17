@@ -16,6 +16,15 @@ const authReducer = (state = initialState, action) => {
     case 'SIGNOUT_SUCCESS':
       console.log('Signout Success')
       return state
+    case 'SIGNUP_SUCCESS':
+      console.log('Signup Success')
+      return {
+        ...state,
+        authError: null,
+      }
+    case 'SIGNUP_ERROR':
+      console.log('Signup Failed')
+      return { ...state, authError: action.error.message }
     default:
       return state
   }

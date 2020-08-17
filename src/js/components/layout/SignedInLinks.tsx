@@ -30,7 +30,7 @@ const SignedInLinks = (props: any): JSX.Element => {
           to='/'
           title='Click here to view your profile'
         >
-          SN
+          {props.profile.initals}
         </NavLink>
       </li>
     </ul>

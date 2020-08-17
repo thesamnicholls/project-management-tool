@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import Input from './Input'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Input from './Input'
+import { signUp } from '../../store/actions/authActions'
 
 const SignUp = (props: any): JSX.Element => {
   const [password, setPassword] = useState('')
@@ -9,8 +10,15 @@ const SignUp = (props: any): JSX.Element => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
 
-  // Descructuring auth from props
-  const { auth } = props
+  // Creating a new object which stores the firstName, lastName, email and password state
+  const newUser = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    password: password,
+  }
+  // Descructuring auth and authError from props
+  const { auth, authError } = props
 
   const handleEmailChange = (event: any) => {
     // Setting the email state to be the value the user enters in the email input
@@ -35,6 +43,7 @@ const SignUp = (props: any): JSX.Element => {
   const handleSubmit = (event: any) => {
     // Stops the page from refreshing
     event.preventDefault()
+    props.signUp(newUser)
     console.log(
       'password ' + password,
       'email ' + email,
@@ -76,6 +85,7 @@ const SignUp = (props: any): JSX.Element => {
         type='text'
         onChange={handleLastNameChange}
       />
+      {authError && <p className='c-form__error'>{authError}</p>}
       <div className='c-form__button'>
         <button
           className='c-button'
@@ -92,7 +102,16 @@ const SignUp = (props: any): JSX.Element => {
 const mapStateToProps = (state: any) => {
   return {
     auth: state.firebase.auth,
+    authError: state.auth.authError,
   }
 }
 
-export default connect(mapStateToProps)(SignUp)
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    signUp: (newUser: any) => {
+      dispatch(signUp(newUser))
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

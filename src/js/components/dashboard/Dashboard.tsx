@@ -1,6 +1,5 @@
 import React from 'react'
 import ProjectList from '../projects/ProjectList'
-import Notifications from './Notifications'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
@@ -18,11 +17,8 @@ const Dashboard = (props: any): JSX.Element => {
   // If the user is not logged in then show the dashboard
   return (
     <div className='l-dashboard'>
-      <div className='l-dashboard__wrapper--card'>
+      <div className='l-dashboard__wrapper'>
         <ProjectList projects={projects} />
-      </div>
-      <div className='l-dashboard__wrapper--notification'>
-        <Notifications />
       </div>
     </div>
   )
